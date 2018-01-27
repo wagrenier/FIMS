@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import rubberduckies.fims.R;
 
 /**
  * Created by Etienne on 27/01/2018.
@@ -19,7 +20,7 @@ public class MyViewHolderProducts extends RecyclerView.ViewHolder {
 
     public MyViewHolderProducts(View itemView) {
         super(itemView);
-        button = (Button) itemView.findViewById(R.id.button);
+        button = (ImageView) itemView.findViewById(R.id.button);
         name = (TextView) itemView.findViewById(R.id.name);
         upc = (TextView) itemView.findViewById(R.id.upc);
     }

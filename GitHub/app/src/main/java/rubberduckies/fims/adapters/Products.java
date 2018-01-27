@@ -1,10 +1,11 @@
+package rubberduckies.fims.adapters;
 
 //The class products, where all products in the database will be an object with variables upc, name, and the date the object was scanned
 public class Products
 {
 	 
 	 public long upc;
-	 public string name;
+	 public String name;
 	 public int month;
 	 public  int day;
 	 public int year;
@@ -19,7 +20,7 @@ public class Products
 	 }
 	 
 	 
-	 public Products (long upc, string name, int day, int month, int year)
+	 public Products (long upc, String name, int day, int month, int year)
 	 {
 	 this.upc = upc;
 	 this.name = name;
@@ -34,7 +35,7 @@ public class Products
 	upc = theUPCNum;
 	}
 
-	public void setName(string name)
+	public void setName(String name)
 	{
 	this.name = name;
 	}
@@ -56,7 +57,7 @@ public class Products
 	}	
 	
 	
-	public string getName()
+	public String getName()
 	{
 	return name;
 	}
