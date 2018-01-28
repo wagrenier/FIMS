@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "516918810913",
+    "firebase_url": "https://fims-therubberducks.firebaseio.com",
+    "project_id": "fims-therubberducks",
+    "storage_bucket": "fims-therubberducks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516918810913:android:e7ec67b5d6bbe335",
+        "android_client_info": {
+          "package_name": "rubberduckies.fims"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516918810913-pfemnnvtpbbpifcgia0g2quadqr232qb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rubberduckies.fims",
+            "certificate_hash": "6c6b5094bcc9d698903fab0584005cf43344c9ca"
+          }
+        },
+        {
+          "client_id": "516918810913-msinjcdneqsqlqkj0pbkihfqfqqh73oi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTvcPPysLqHllgv_Bf4-BhJN3n7Xjp0CM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516918810913-msinjcdneqsqlqkj0pbkihfqfqqh73oi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

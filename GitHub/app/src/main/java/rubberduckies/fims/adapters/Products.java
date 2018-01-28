@@ -4,7 +4,7 @@ package rubberduckies.fims.adapters;
 public class Products
 {
 	 
-	 public long upc;
+	 public String upc;
 	 public String name;
 	 public int month;
 	 public  int day;
@@ -12,7 +12,7 @@ public class Products
 	 
 	 public Products()
 	 {
-	 upc = 000000;
+	 upc = "000000";
 	 name = "";
 	 day = 01;
 	 month = 01;
@@ -20,7 +20,7 @@ public class Products
 	 }
 	 
 	 
-	 public Products (long upc, String name, int day, int month, int year)
+	 public Products (String upc, String name, int day, int month, int year)
 	 {
 	 this.upc = upc;
 	 this.name = name;
@@ -30,7 +30,7 @@ public class Products
 	 }
 	 
 	 
-	public void setUPC(long theUPCNum)
+	public void setUPC(String theUPCNum)
 	{
 	upc = theUPCNum;
 	}
@@ -62,7 +62,7 @@ public class Products
 	return name;
 	}
 	
-	public long getUPC()
+	public String getUPC()
 	{
 	return upc;
 	}

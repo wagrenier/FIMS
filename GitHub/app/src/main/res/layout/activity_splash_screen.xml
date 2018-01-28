@@ -11,15 +11,16 @@
         android:layout_alignParentTop="true"
         android:adjustViewBounds = "true"
         android:scaleType="centerCrop"
-        android:src="@drawable/pizza_flou" />
+        android:src="@mipmap/pizza_flou" />
 
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="250dp"
+        android:layout_width="235dp"
         android:layout_height="250dp"
-        android:layout_centerInParent="true"
         android:scaleType="fitXY"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="rubberduckies.fims.RegisterActivity"
+    android:orientation="vertical"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight= "0dp"
+    android:paddingTop="0dp"
+    android:dividerPadding="0dp"
+    android:background="@color/colorPrimary"
+    android:weightSum="1"
+    android:id="@+id/register_form">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:paddingTop="0dp"
+        android:id="@+id/imageView"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        app:srcCompat="@drawable/logo" />
+
+    <LinearLayout
+        android:id="@+id/email_register_form"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:dividerPadding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:hint="Full Name"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:hint="@string/prompt_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:hint="@string/prompt_password"
+            android:imeActionId="@+id/login_text"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:hint="Confirm Password"
+            android:imeActionId="@+id/login_text"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+        <Button
+            android:id="@+id/email_sign_in_button"
+            style="?android:textAppearanceSmall"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:text="Register"
+            android:textStyle="bold"
+            android:layout_height="50dp"
+            android:background="@drawable/button"/>
+
+    </LinearLayout>
+
+</LinearLayout>

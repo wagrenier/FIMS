@@ -20,8 +20,37 @@ public class MyViewHolderProducts extends RecyclerView.ViewHolder {
 
     public MyViewHolderProducts(View itemView) {
         super(itemView);
-        button = (ImageView) itemView.findViewById(R.id.button);
+        button = (ImageView) itemView.findViewById(R.id.delete);
         name = (TextView) itemView.findViewById(R.id.name);
         upc = (TextView) itemView.findViewById(R.id.upc);
+    }
+
+    public void bind(Products product){
+        name.setText(product.getName());
+        upc.setText(String.valueOf(product.getUPC()));//TODO check
+    }
+
+    public ImageView getButton() {
+        return button;
+    }
+
+    public void setButton(ImageView button) {
+        this.button = button;
+    }
+
+    public TextView getName() {
+        return name;
+    }
+
+    public void setName(TextView name) {
+        this.name = name;
+    }
+
+    public TextView getUpc() {
+        return upc;
+    }
+
+    public void setUpc(TextView upc) {
+        this.upc = upc;
     }
 }
