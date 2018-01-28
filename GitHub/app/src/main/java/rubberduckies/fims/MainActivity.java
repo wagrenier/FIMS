@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,7 +15,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import rubberduckies.fims.adapters.MyAdapterProducts;
 import rubberduckies.fims.adapters.Products;
 import rubberduckies.fims.adapters.User;
@@ -71,20 +74,20 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(new MyAdapterProducts(getApplicationContext(), products));
 
-
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Double d = (Math.random()*10);
             String stemp = "" +d.intValue();
             Log.d("user: ", UserManager.getInstance().getCurrentUser().getName());
-            UserManager.getInstance().getCurrentUser().addProductInList(new Products(stemp,"rubber duck", 27,1,1997));
+            UserManager.getInstance().getCurrentUser().addProductInList(new Products(stemp,"rubber duck", "27","1","1997"));
 
             UserManager.getInstance().editUserInformations(UserManager.getInstance().getCurrentUser());
 
             for(Products p : UserManager.getInstance().getCurrentUser().getProducts()){
                 Log.d("Element: ", p.getName());
             }
-        });
+        });*/
     }
 
     void addProduct(Products p){
@@ -114,6 +117,51 @@ public class MainActivity extends AppCompatActivity {
                             //Not handled
                         }
                     });*/
+
+                }
+            }
+            public void onCancelled(DatabaseError firebaseError) {
+                //Not Handled
+            }
+        });
+        Handler h = new Handler();
+        h.postDelayed(() -> loadBuffer(), 200);
+
+    }
+
+    private void loadBuffer() {
+        User currentUser = UserManager.getInstance().getCurrentUser();
+
+        DatabaseReference usersTable = FirebaseDatabase.getInstance().getReference("users");
+        usersTable.child(currentUser.getId()).child("buffer").addValueEventListener(new ValueEventListener() {
+
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot products: snapshot.getChildren()) {
+                    //Products temp = products.getValue(Products.class);
+                    //Log.d("Product", temp.getName());
+
+                        Products product = new Products();
+                        Map<String, Object> objectMap = (HashMap<String, Object>)snapshot.getValue();
+
+                        for (Object obj : objectMap.values()) {
+                            if (obj instanceof Map) {
+                                Map<String, Object> mapObj = (Map<String, Object>) obj;
+
+                                product.setDay((String)mapObj.get("day"));
+                                product.setMonth((String)mapObj.get("month"));
+                                product.setYear((String)mapObj.get("year"));
+                                product.setUPC((String) mapObj.get("upc"));
+                                product.setName((String) mapObj.get("name"));
+                                addProduct(product);
+                                UserManager.getInstance().getCurrentUser().addProductInList(product);
+                                UserManager.getInstance().editUserInformations(UserManager.getInstance().getCurrentUser());
+                            }
+                        }
+
+
+
+                    products.getRef().removeValue();
+
                 }
             }
             public void onCancelled(DatabaseError firebaseError) {
@@ -130,9 +178,22 @@ public class MainActivity extends AppCompatActivity {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = null;
+                User user = new User();
                 for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
-                    user = singleSnapshot.getValue(User.class);
+                    //user = singleSnapshot.getValue(User.class);
+
+                    Map<String, Object> objectMap = (HashMap<String, Object>)dataSnapshot.getValue();
+
+                    for (Object obj : objectMap.values()) {
+                        if (obj instanceof Map) {
+                            Map<String, Object> mapObj = (Map<String, Object>) obj;
+
+                            user.setId((String) mapObj.get("id"));
+                            user.setName((String) mapObj.get("name"));
+                        }
+                    }
+
+
                     Log.d("User: ", user.getName());
 
                     UserManager.getInstance().setCurrentUser(user);
@@ -149,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
         };
         userQuery.addListenerForSingleValueEvent(postListener);
     }
+
 
 
     @Override

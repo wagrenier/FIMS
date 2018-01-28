@@ -1,6 +1,7 @@
 package rubberduckies.fims.adapters;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Created by Etienne on 27/01/2018.

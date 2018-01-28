@@ -12,6 +12,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Observable;
 import rubberduckies.fims.adapters.User;
 
@@ -68,9 +71,26 @@ public class UserManager extends Observable {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = null;
+                //User user = null;
+                //for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                    //user = singleSnapshot.getValue(User.class);
+
+                User user = new User();
                 for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
-                    user = singleSnapshot.getValue(User.class);
+                    //user = singleSnapshot.getValue(User.class);
+
+                    Map<String, Object> objectMap = (HashMap<String, Object>)dataSnapshot.getValue();
+
+                    for (Object obj : objectMap.values()) {
+                        if (obj instanceof Map) {
+                            Map<String, Object> mapObj = (Map<String, Object>) obj;
+
+                            user.setId((String) mapObj.get("id"));
+                            user.setName((String) mapObj.get("name"));
+                        }
+                    }
+
+
 
                     current_user = user;
                 }

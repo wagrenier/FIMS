@@ -26,7 +26,8 @@ public class MyViewHolderProducts extends RecyclerView.ViewHolder {
     }
 
     public void bind(Products product){
-        name.setText(product.getName());
+        String temp = product.getName().substring(2, product.getName().length()-2);
+        name.setText(temp);
         upc.setText(String.valueOf(product.getUPC()));//TODO check
     }
 

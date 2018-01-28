@@ -6,21 +6,21 @@ public class Products
 	 
 	 public String upc;
 	 public String name;
-	 public int month;
-	 public  int day;
-	 public int year;
+	 public String month;
+	 public String day;
+	 public String year;
 	 
 	 public Products()
 	 {
 	 upc = "000000";
 	 name = "";
-	 day = 01;
-	 month = 01;
-	 year = 2018;
+	 day = "1";
+	 month = "1";
+	 year = "1";
 	 }
 	 
 	 
-	 public Products (String upc, String name, int day, int month, int year)
+	 public Products (String upc, String name, String day, String month, String year)
 	 {
 	 this.upc = upc;
 	 this.name = name;
@@ -40,18 +40,18 @@ public class Products
 	this.name = name;
 	}
 	
-	public void setDay( int day)
+	public void setDay(String day)
 	{
 	this.day = day;
 	}
 	
-	public void setMonth ( int month) 
+	public void setMonth (String month)
 	{
 	this.month = month;
 	}
 	
 	
-	public void setYear ( int year)
+	public void setYear (String year)
 	{
 	this.year = year;
 	}	
@@ -67,17 +67,17 @@ public class Products
 	return upc;
 	}
 	
-	public int getDay()
+	public String getDay()
 	{
 	return day;
 	}
 
-	public int getMonth()
+	public String getMonth()
 	{
 	return month;
 	}
 	
-	public int getYear()
+	public String getYear()
 	{
 	return year;
 	}
